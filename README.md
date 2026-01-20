@@ -5,6 +5,7 @@
 ## Resources
 	[Dockerdocs manual: about Docker Compose](https://docs.docker.com/compose/)
 	[Geeks for geeks : about Docker Image](https://www.geeksforgeeks.org/devops/what-is-docker-image/)
+	[grafikart.fr : Dockerfile](https://grafikart.fr/tutoriels/dockerfile-636)
 
 #### AI was used for:
 	- explaine how I understand a notion and ask if this is how it works or I am wrong
@@ -15,6 +16,8 @@
 	- is a configuration file : docker-compose.yml
 	- is a tool that organizes communication between containers.
 	- orginize the containers, the volumes and the docker-network
+
+### Dockerfile
 
 ### Docker Image
 
