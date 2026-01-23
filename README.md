@@ -6,6 +6,8 @@
 	[Dockerdocs manual: about Docker Compose](https://docs.docker.com/compose/)
 	[Geeks for geeks : about Docker Image](https://www.geeksforgeeks.org/devops/what-is-docker-image/)
 	[grafikart.fr : Dockerfile](https://grafikart.fr/tutoriels/dockerfile-636)
+	[dockerdocs : Dockerfile](https://docs.docker.com/reference/dockerfile/)
+	[Blog about creation of an empty container and configuration of the nginx](https://vanich.cv.ua/linux/nginx/stvoryuyemo-porozhnij-kontejner-v-yakomu/)
 
 #### AI was used for:
 	- explaine how I understand a notion and ask if this is how it works or I am wrong
@@ -18,6 +20,7 @@
 	- orginize the containers, the volumes and the docker-network
 
 ### Dockerfile
+	Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
 
 ### Docker Image
 
