@@ -3,63 +3,69 @@
 ## Description
 ## Instruction
 ## Resources
-	[Dockerdocs manual: about Docker Compose](https://docs.docker.com/compose/)
-	[Geeks for geeks : about Docker Image](https://www.geeksforgeeks.org/devops/what-is-docker-image/)
-	[grafikart.fr : Dockerfile](https://grafikart.fr/tutoriels/dockerfile-636)
-	[dockerdocs : Dockerfile](https://docs.docker.com/reference/dockerfile/)
-	[librecours.net : Syntax of Dockerfile](https://librecours.net/modules/picasoft/run/dk02/solweb/co/1_dockerfile.html)
-	[Blog about creation of an empty container and configuration of the nginx](https://vanich.cv.ua/linux/nginx/stvoryuyemo-porozhnij-kontejner-v-yakomu/)
+[Dockerdocs manual](https://docs.docker.com/compose/) 
+
+[Geeks for geeks : about Docker Image](https://www.geeksforgeeks.org/devops/what-is-docker-image/) 
+
+[grafikart.fr : Dockerfile](https://grafikart.fr/tutoriels/dockerfile-636) 
+
+[dockerdocs : Dockerfile](https://docs.docker.com/reference/dockerfile/) 
+
+[librecours.net : Syntax of Dockerfile](https://librecours.net/modules/picasoft/run/dk02/solweb/co/1_dockerfile.html) 
+
+[Blog about creation of an empty container and configuration of the nginx](https://vanich.cv.ua/linux/nginx/stvoryuyemo-porozhnij-kontejner-v-yakomu/) 
+
 
 #### AI was used for:
-	- explaine how I understand a notion and ask if this is how it works or I am wrong
+- explaine how I understand a notion and ask if this is how it works or I am wrong
 
 
 ## Project description
 ### Docker 
-	- separate system ( service/daemon-background system process )
-	- installed manually
-	- runs in the background
-	- has its own storage ( images, containers, volumes )
+- separate system ( service/daemon-background system process )
+- installed manually
+- runs in the background
+- has its own storage ( images, containers, volumes )
 
 ### Docker Compose 
-	- is a configuration file : docker-compose.yml
-	- is a tool that organizes communication between containers.
-	- orginize the containers, the volumes and the docker-network
+- is a configuration file : docker-compose.yml
+- is a tool that organizes communication between containers.
+- orginize the containers, the volumes and the docker-network
 
 ### Dockerfile
-	Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
+Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. 
 
 ### Docker Image
 
-	is built from a Docker file
-	- lightweight executable software package that includes everything needed to run an application: the code, a runtime, a system tools, libraries, settings.
-	- is a platform-independent image that can be built and used on different environments
-	- command to build a docker image [docker build -t your_image_name:tag -f path/to/Dockerfile]
+is built from a Docker file
+- lightweight executable software package that includes everything needed to run an application: the code, a runtime, a system tools, libraries, settings.
+- is a platform-independent image that can be built and used on different environments
+- command to build a docker image [docker build -t your_image_name:tag -f path/to/Dockerfile]
 	
 ### Rules
 
-	- The project is running on the virtual machine
-	- Configuration files are in a srcs
-	- Makefile is required ( for setting up the entire application )
+- The project is running on the virtual machine
+- Configuration files are in a srcs
+- Makefile is required ( for setting up the entire application )
 
 ### Containers
 	
-	Container is a running instance of an image.
+Container is a running instance of an image.
 
-	- NGINX with TLSv1.2 or TLSv1.3 :
+- NGINX with TLSv1.2 or TLSv1.3 :
 			the only point of the access from the browser
-	- WordPress + php-fpm ( without nginx ) :
+- WordPress + php-fpm ( without nginx ) :
 			the logic of the site
-	- MariaDB ( without nginx ) :
+- MariaDB ( without nginx ) :
 			the data
 ### Volumes
-	- are used to store persistent data that should not be lost when a container is stopped or rebuit
+- are used to store persistent data that should not be lost when a container is stopped or rebuit
 	
 ### NGINX
-	- hight performance web server
-	- accepts and processes HTTP requests on the server and returns responses to clients
+- hight performance web server
+- accepts and processes HTTP requests on the server and returns responses to clients
 
-	myComputer( acting as a local server ) -> nginx -> site
+myComputer( acting as a local server ) -> nginx -> site
 
 ### HTTP
-	- WWW is a set of applications communicationg via the Web protocol called HTTP ( Hypertext Transfer Protocol )
+- WWW is a set of applications communicationg via the Web protocol called HTTP ( Hypertext Transfer Protocol )
