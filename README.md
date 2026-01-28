@@ -7,6 +7,7 @@
 	[Geeks for geeks : about Docker Image](https://www.geeksforgeeks.org/devops/what-is-docker-image/)
 	[grafikart.fr : Dockerfile](https://grafikart.fr/tutoriels/dockerfile-636)
 	[dockerdocs : Dockerfile](https://docs.docker.com/reference/dockerfile/)
+	[librecours.net : Syntax of Dockerfile](https://librecours.net/modules/picasoft/run/dk02/solweb/co/1_dockerfile.html)
 	[Blog about creation of an empty container and configuration of the nginx](https://vanich.cv.ua/linux/nginx/stvoryuyemo-porozhnij-kontejner-v-yakomu/)
 
 #### AI was used for:
@@ -14,6 +15,12 @@
 
 
 ## Project description
+### Docker 
+	- separate system ( service/daemon-background system process )
+	- installed manually
+	- runs in the background
+	- has its own storage ( images, containers, volumes )
+
 ### Docker Compose 
 	- is a configuration file : docker-compose.yml
 	- is a tool that organizes communication between containers.
@@ -48,8 +55,11 @@
 ### Volumes
 	- are used to store persistent data that should not be lost when a container is stopped or rebuit
 	
+### NGINX
+	- hight performance web server
+	- accepts and processes HTTP requests on the server and returns responses to clients
 
+	myComputer( acting as a local server ) -> nginx -> site
 
-
-
-
+### HTTP
+	- WWW is a set of applications communicationg via the Web protocol called HTTP ( Hypertext Transfer Protocol )

@@ -1,5 +1,3 @@
-## Dockerfile
-	create and configure an image
 ### Commands in Dockerfile
 	- `FROM` defines the sources from which your image will be created
 	- `MAINTAINER` defines the image's author and is written like this `Name <email>` (outdated)
@@ -15,5 +13,24 @@
 	- `ENV` defines environment variables that can then be modified using the run command parameter `--env<key>=<value>`
 	- `VOLUMES` creates a mount point for persisting data. You can then choose to mount this volume in a specific directory using the command `run -v <host path>`
 
-### Run a Dockerfile with 
-	``
+## CMDs
+
+### verify that docker is running
+	`sudo systemctl status docker`
+### if not running
+	`sudo systemctl start docker`
+### build an image
+	`docker build -t myimage .`
+	build an image in layers and save the result in Docker engine ( invisible for user, it's not in the directory ).
+
+### to see which images are created
+	`sudo docker images`
+### run a docker
+	`docker run -p 80:80 myimage`
+### to see dockers
+	`docker ps`
+### enter the docker 
+	`docker exec -it mycontainer  sh
+`
+### open web page to see any simple text from nginx.conf
+	`http://localhost`
