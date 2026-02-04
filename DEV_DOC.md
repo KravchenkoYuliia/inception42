@@ -34,3 +34,9 @@
 `
 ### open web page to see any simple text from nginx.conf
 	`http://localhost`
+
+### rm all images
+	`docker rmi -f $(docker images -aq)`
+
+### removes stopped containers
+	`docker container prune`

@@ -65,7 +65,15 @@ Container is a running instance of an image.
 - hight performance web server
 - accepts and processes HTTP requests on the server and returns responses to clients
 
-myComputer( acting as a local server ) -> nginx -> site
-
-### HTTP
+- myComputer( acting as a local server ) -> nginx -> site
+#### HTTP vs HTTPs
 - WWW is a set of applications communicationg via the Web protocol called HTTP ( Hypertext Transfer Protocol )
+	Client( local server ) send smth to the server
+
+- HTTPs - the same HTTP but secured with cryptographic protocol: SSL or TLS
+- TLS is cryptographic protocol.
+	Client( local server ) send smth to the server - The web browser encrypts the information and only the server can decrypt this message because it contains a special key. 
+	It's called the cryptographic encryption
+
+### MariaDB
+
