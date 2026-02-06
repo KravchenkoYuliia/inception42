@@ -16,27 +16,32 @@
 ## CMDs
 
 ### verify that docker is running
-	`sudo systemctl status docker`
+`sudo systemctl status docker`
 ### if not running
-	`sudo systemctl start docker`
+`sudo systemctl start docker`
 ### build an image
-	`docker build -t myimage .`
+`docker build -t myimage .`
 	build an image in layers and save the result in Docker engine ( invisible for user, it's not in the directory ).
 
 ### to see which images are created
-	`sudo docker images`
+`sudo docker images`
 ### run a docker
-	`docker run -p 80:80 myimage`
+`docker run -p 80:80 myimage`
 ### to see dockers
-	`docker ps`
+`docker ps`
 ### enter the docker 
-	`docker exec -it mycontainer  sh
-`
+`docker exec -it mycontainer  sh`
 ### open web page to see any simple text from nginx.conf
-	`http://localhost`
+`http://localhost`
 
-### rm all images
-	`docker rmi -f $(docker images -aq)`
+### rm images
+`docker rmi image`
+`docker rmi -f $(docker images -aq)` for all images
 
 ### removes stopped containers
-	`docker container prune`
+`docker rm containerName`
+`docker container prune`
+
+### build and run docker compose / delete containers
+`docker compose up` /
+`docker compose down`

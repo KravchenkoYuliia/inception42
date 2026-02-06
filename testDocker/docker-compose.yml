@@ -1,0 +1,15 @@
+
+services:
+  nginx:
+    build:
+      context: ./newDocker
+      dockerfile: Dockerfile
+    image: my_nginx
+
+  hello:
+    build:
+      context: ./newDocker1
+      dockerfile: Dockerfile
+    image: my_hello
+
+
