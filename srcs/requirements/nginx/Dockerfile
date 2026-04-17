@@ -1,8 +1,8 @@
 FROM debian:bookworm
 
 RUN apt-get update && \
-    apt-get install -y nginx && \
-    apt-get install -y openssl
+    apt-get install nginx -y && \
+    apt-get install openssl -y
 
 RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
