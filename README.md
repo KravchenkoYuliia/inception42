@@ -1,0 +1,1 @@
+[Installation mariadb](https://aymeric-cucherousset.fr/installer-mariadb-sur-debian-11/)
