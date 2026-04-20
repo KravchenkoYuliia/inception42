@@ -1,0 +1,112 @@
+### Commands in Dockerfile
+	- `FROM` defines the sources from which your image will be created
+	- `MAINTAINER` defines the image's author and is written like this `Name <email>` (outdated)
+		better use
+		- LABEL maintainer=name adds any meta data
+		
+	- `RUN` executes an image but also creates an intermediate image
+	- `ADD` allows to copy a file from the host machine or from a URL
+	- `EXPOSE` expose a container port to the outside world
+	- `CMD` determines the command that will be executed when the container starts
+	- `ENTRYPOINT` adds a command that will be executed by default, even if you choose to run a different command than the standard one
+	- `WORKDIR` defines the working directory for all other commands (like RUN, CMD, ENTRYPOINT and ADD)
+	- `ENV` defines environment variables that can then be modified using the run command parameter `--env<key>=<value>`
+	- `VOLUMES` creates a mount point for persisting data. You can then choose to mount this volume in a specific directory using the command `run -v <host path>`
+
+## CMDs
+
+
+### build an image
+`docker build -t myimage .`
+	build an image in layers and save the result in Docker engine ( invisible for user, it's not in the directory ).
+
+### to see which images are created
+`sudo docker images`
+### run a docker
+`docker run -p 80:80 myimage`
+### to see dockers
+`docker ps`
+### enter the docker 
+`docker exec -it mycontainer sh`
+### open web page to see any simple text from nginx.conf
+`https://localhost`
+
+### rm images
+`docker rmi image`
+`docker rmi -f $(docker images -aq)` for all images
+
+### removes stopped containers
+`docker rm containerName`
+`docker container prune`
+
+### build and run docker compose / delete containers
+`docker compose up` /
+`docker compose down`
+
+
+### get my IP
+`hostname -I | awk '{print $1}'`
+
+
+
+### Ports
+Browser hhtps ---> 443 ---> nginx ---> 9000 ---> wordpress (php-fpm) ---> 3306 ---> mariadb
+
+
+### Volumes
+- MariaDB `/var/lib/mysql`
+- WordPress `/var/www/html`
+
+
+## Testing real containers
+### mariadb
+`docker pull mariadb`
+optionnal to see exposed port: `docker inspect mariadb:latest`
+`docker run -e MARIADB_ROOT_PASSWORD=1 mariadb:latest`
+`docker exec -it <container_number>`
+`mariadb` - enters MariaDB monitor
+`mariadb -u root -p` enters MariaDB monitor with password
+`SHOW DATABASES;`
+show user
+`SELECT User, Host FROM mysql.user;`
+
+
+### my docker mariadb
+
+`mariadb -u root -p`
+`SHOW DATABASES;`
+`USE db_name;`
+`SHOW TABLES;`
+`SELECT * FROM wp_comments;`
+
+### test real wordpress
+create network connection for future container
+```podman network create wp-net```
+
+    run mariadb
+```
+podman run -d \
+  --name db \
+  --network wp-net \
+  -e MYSQL_ROOT_PASSWORD=rootpass \
+  -e MYSQL_DATABASE=wordpress \
+  -e MYSQL_USER=wp \
+  -e MYSQL_PASSWORD=wp \
+  docker.io/mariadb:latest
+
+```
+     run wordpress
+```
+podman run -d \
+  --name wp \
+  --network wp-net \
+  -p 8080:80 \
+  -e WORDPRESS_DB_HOST=db \
+  -e WORDPRESS_DB_USER=wp \
+  -e WORDPRESS_DB_PASSWORD=wp \
+  -e WORDPRESS_DB_NAME=wordpress \
+  docker.io/wordpress
+```
+
+    result
+now can open wordpress site
