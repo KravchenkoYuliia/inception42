@@ -1,17 +1,19 @@
 services:
 
-#  nginx:
-#    ports:
-#    - "443:443"
-#    build:
-#      context: ./requirements/nginx
-#      dockerfile: Dockerfile
-#    image: nginx
-#    container_name: nginx
-    #volumes:
-    #- wordpress:/var/www/html
-    #networks:
-    #- inception
+  nginx:
+    depends_on:
+    - wordpress
+    ports:
+    - "443:443"
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    image: nginx
+    container_name: nginx
+    volumes:
+    - wordpress:/var/www/html
+    networks:
+    - inception
 
  
   mariadb:
@@ -22,40 +24,43 @@ services:
     container_name: mariadb
     env_file:
     - ".env"
-#    volumes:
-#    - database:/var/lib/mysql
-#    networks:
-#    - inception
-#
-#
-#  wordpress:
-#    build:
-#      context: ./srcs/wordpress
-#      dockerfile: Dockerfile
-#    image: wordpress
-#    container_name: wp-php
-#    volumes:
-#    - wordpress:/var/www/html
-#    networks:
-#    - inception
-#
-#volumes:
-#  database:
-#    driver: local
-#    driver_opts:
-#      type: none
-#      device: /home/yukravch/data/database
-#      o: bind
-#  wordpress:
-#    driver: local
-#    driver_opts:
-#      type: none
-#      device: /home/yukravch/data/wordpress
-#      o: bind
-#
-#
-#
-#
-#networks:
-#  inception:
-#    driver: bridge
+    volumes:
+    - database:/var/lib/mysql
+    networks:
+    - inception
+
+  wordpress:
+    depends_on:
+    - mariadb
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    image: wordpress
+    container_name: wordpress
+    env_file:
+    - ".env"
+    volumes:
+    - wordpress:/var/www/html
+    networks:
+    - inception
+
+volumes:
+  database:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/yukravch/data/database
+      o: bind
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/yukravch/data/wordpress
+      o: bind
+
+
+
+
+networks:
+  inception:
+    driver: bridge
