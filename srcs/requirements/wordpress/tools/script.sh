@@ -21,8 +21,8 @@ else
     echo "wp-config already exists"
 fi
 
-#-P"${WP_DB_HOST##*:}"
-until mysqladmin ping -h"${WP_DB_HOST%:*}" -u"${WP_DB_USER}" -p"${WP_DB_PASSWORD}" --silent 2>/dev/null; do
+
+until mysqladmin ping -h"${WP_DB_HOST%:*}" -P"${WP_DB_HOST##*:}" -u"${WP_DB_USER}" -p"${WP_DB_PASSWORD}" --silent 2>/dev/null; do
     echo "Waiting for mariadb"
     sleep 2
 done
@@ -33,6 +33,7 @@ done
 #done
 
 if ! wp core is-installed --allow-root; then
+    echo "Installing Wordpress..."
     wp core install --url="${WP_ADMIN_URL}" \
     --title="${WP_DB_TITLE}" \
     --admin_user="${WP_ADMIN_USER}" \
