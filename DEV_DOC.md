@@ -1,4 +1,61 @@
-### Commands in Dockerfile
+## Set up the environment from scratch (prerequisites, configuration files, secrets)
+- install Docker, docker compose
+- check if you have `sudo` rights
+- change my login in url `yukravch` to yours or `localhost`
+- change path to volumes in Makefile
+- create `.env` in srcs with following variables
+WP_DB_HOST=mariadb:3306
+
+MY_DATABASE=your_value                
+MY_PASSWORD=your_value 
+MY_ROOT_PASSWORD=your_value 
+WP_DB_NAME=your_value 
+WP_DB_USER=your_value 
+WP_DB_PASSWORD=your_value 
+WP_ADMIN_URL=your_value 
+WP_DB_TITLE=your_value 
+WP_ADMIN_USER=your_value
+WP_ADMIN_PASSWORD=your_value 
+WP_ADMIN_EMAIL=your_value 
+
+## Build and launch the project using the Makefile and Docker Compose
+
+The project is managed by makefile:
+- `make up` to compile the project = create volumes and start the containers with `docker compose up`
+- `make down` stops the containers with `docker compose down`
+- `make clean` stops the containers with `docker compose down` and remove the volumes
+- `make fclean` stops the containers with `docker compose down` and delete EVERYTHING
+
+## Use relevant commands to manage the containers and volumes
+
+`docker compose up` - starts the services
+`docker compose down` - stops the services and delete the containers
+`docker compose ps` - checks the status of containers
+`docker compose logs` - shows debugging logs
+`docker volume ls` - shows volumes
+`docker volume rm <name>` - delete volume 
+`docker images` - shows images
+
+`docker rmi image` - delete image
+`docker rmi -f $(docker images -aq)` - delete all images
+`docker rm containerName` - delete container
+`docker container prune` - delete all container
+
+check mariadb database:
+`mariadb -u root -p`
+`SHOW DATABASES;`
+`USE db_name;`
+`SHOW TABLES;`
+`SELECT * FROM wp_comments;`
+
+manage the docker without docker-compose( example nginx ):
+`docker build -t nginx .` - build an image in layers and save the result in Docker engine
+`docker run -p 80:80 nginx` - run the container
+`docker exec -it nginx bash` - open bash in this container
+
+
+
+## Commands in Dockerfile
 	- `FROM` defines the sources from which your image will be created
 	- `MAINTAINER` defines the image's author and is written like this `Name <email>` (outdated)
 		better use
@@ -17,8 +74,7 @@
 
 
 ### build an image
-`docker build -t myimage .`
-	build an image in layers and save the result in Docker engine ( invisible for user, it's not in the directory ).
+
 
 ### to see which images are created
 `sudo docker images`
@@ -32,8 +88,7 @@
 `https://localhost`
 
 ### rm images
-`docker rmi image`
-`docker rmi -f $(docker images -aq)` for all images
+
 
 ### removes stopped containers
 `docker rm containerName`
