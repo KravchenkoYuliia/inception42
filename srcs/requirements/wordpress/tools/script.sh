@@ -33,7 +33,7 @@ done
 #done
 
 if ! wp core is-installed --allow-root; then
-    echo "Installing Wordpress..."
+    echo "Configuring Wordpress..."
     wp core install --url="${WP_ADMIN_URL}" \
     --title="${WP_DB_TITLE}" \
     --admin_user="${WP_ADMIN_USER}" \
