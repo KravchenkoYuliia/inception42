@@ -35,6 +35,7 @@ The project is managed by makefile:
 `docker volume ls` - shows volumes
 `docker volume rm <name>` - delete volume 
 `docker images` - shows images
+`hostname -I | awk '{print $1}'` - gt my IP
 
 `docker rmi image` - delete image
 `docker rmi -f $(docker images -aq)` - delete all images
@@ -53,7 +54,8 @@ manage the docker without docker-compose( example nginx ):
 `docker run -p 80:80 nginx` - run the container
 `docker exec -it nginx bash` - open bash in this container
 
-
+## Where the project data is stored and how it persists
+Project data is physically stored in the host directory `/home/yukravch/data by using named volumes. Inside the containers, these volumes are mounted to `/var/lib/mysql`( mariadb ) and `/var/www/html` ( wordpress ). Data persists because it is stored on the host and remains intact even when the containers are removed.
 
 ## Commands in Dockerfile
 	- `FROM` defines the sources from which your image will be created
@@ -70,71 +72,11 @@ manage the docker without docker-compose( example nginx ):
 	- `ENV` defines environment variables that can then be modified using the run command parameter `--env<key>=<value>`
 	- `VOLUMES` creates a mount point for persisting data. You can then choose to mount this volume in a specific directory using the command `run -v <host path>`
 
-## CMDs
 
+## Ports
+Browser https ---> 443 ---> nginx ---> 9000 ---> wordpress (php-fpm) ---> 3306 ---> mariadb
 
-### build an image
-
-
-### to see which images are created
-`sudo docker images`
-### run a docker
-`docker run -p 80:80 myimage`
-### to see dockers
-`docker ps`
-### enter the docker 
-`docker exec -it mycontainer sh`
-### open web page to see any simple text from nginx.conf
-`https://localhost`
-
-### rm images
-
-
-### removes stopped containers
-`docker rm containerName`
-`docker container prune`
-
-### build and run docker compose / delete containers
-`docker compose up` /
-`docker compose down`
-
-
-### get my IP
-`hostname -I | awk '{print $1}'`
-
-
-
-### Ports
-Browser hhtps ---> 443 ---> nginx ---> 9000 ---> wordpress (php-fpm) ---> 3306 ---> mariadb
-
-
-### Volumes
-- MariaDB `/var/lib/mysql`
-- WordPress `/var/www/html`
-
-
-## Testing real containers
-### mariadb
-`docker pull mariadb`
-optionnal to see exposed port: `docker inspect mariadb:latest`
-`docker run -e MARIADB_ROOT_PASSWORD=1 mariadb:latest`
-`docker exec -it <container_number>`
-`mariadb` - enters MariaDB monitor
-`mariadb -u root -p` enters MariaDB monitor with password
-`SHOW DATABASES;`
-show user
-`SELECT User, Host FROM mysql.user;`
-
-
-### my docker mariadb
-
-`mariadb -u root -p`
-`SHOW DATABASES;`
-`USE db_name;`
-`SHOW TABLES;`
-`SELECT * FROM wp_comments;`
-
-### test real wordpress
+### test real wordpress outside Inception
 create network connection for future container
 ```podman network create wp-net```
 

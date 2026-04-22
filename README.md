@@ -58,7 +58,8 @@ They are isoleted processes with all needed dependencies.
 - isolated inside docker, containers only can communicate with each other insode internal network vs no isolation - use the host's network directly with no isolation 
 
 ### Docker Volumes vs Bind Mounts
-- real physical storage vs just a link to the real storage
+- tell to docker to create a storage inside docker vs tell that my directory is storage
+- docker manage this volumes - I can't really modify the files inside volumes vs just created directory with manual access
 - can be checked with `docker volume ls` vs are not visible with `docker volume ls`
 example of bind mount
 volumes:
