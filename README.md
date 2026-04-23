@@ -41,7 +41,10 @@ They are isoleted processes with all needed dependencies.
 [Docker prune](https://www.datacamp.com/fr/tutorial/docker-prune)
 [secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
 [Root vs Alias (nginx conf)](https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias)
-
+[devicon](https://devicon.dev/)
+[cv example](https://www.overleaf.com/gallery/tagged/cv)
+[css tuturial](https://www.w3schools.com/css/)
+[html tutorial](https://www.w3schools.com/html/default.asp)
 #### AI was used for:
     used to understand strange logs messages
     explain smth theoretical that was not found online
