@@ -40,6 +40,7 @@ They are isoleted processes with all needed dependencies.
 [install wp-cli](https://github.com/wp-cli/wp-cli)
 [Docker prune](https://www.datacamp.com/fr/tutorial/docker-prune)
 [secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+[Root vs Alias (nginx conf)](https://stackoverflow.com/questions/10631933/nginx-static-file-serving-confusion-with-root-alias)
 
 #### AI was used for:
     used to understand strange logs messages

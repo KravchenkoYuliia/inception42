@@ -12,6 +12,7 @@ services:
     container_name: nginx
     volumes:
     - wordpress:/var/www/html
+    - ./requirements/bonus/static:/var/www/bonus/static:ro
     networks:
     - inception
 

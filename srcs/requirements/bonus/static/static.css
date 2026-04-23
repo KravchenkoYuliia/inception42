@@ -1,0 +1,80 @@
+@keyframes move-background { 
+  from { -webkit-transform: translate3d(0px, 0px, 0px); } 
+  to { -webkit-transform: translate3d(-71px, 0px, 0px); }
+} 
+
+.clouds{ 
+  opacity: 0.2;
+  width:1600px; 
+  height: 100%;
+  background: transparent url("assets/clouds.jpg") repeat; 
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0; top: 0; bottom: 0; left: 0;
+  filter:blur(5px);
+  z-index: -1;
+  animation:move-background 10s linear infinite alternate; 
+}
+
+.cv-block {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 700px; /*height: 677px;*/
+  background-color: rgb(225, 225, 255);
+  z-index: 1;
+
+ /* padding: 50px;*/
+}
+
+.name-block {
+  height: 70px;
+  background-color: rgb(225, 225, 255);
+  padding: 10px;
+  border-bottom: 2px black;
+}
+
+.main-block {
+
+  height: 590px;
+  background-color: rgb(206, 214, 238);
+  z-index: 1;
+  padding: 15px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 2px solid black;
+}
+
+.font-Times {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.text-size{
+  font-size: 15px;
+}
+
+.categories-block {
+  font-size: 20px;
+  text-decoration: underline;
+  text-decoration-color: rgb(146, 168, 189);
+}
+
+.img {
+  height: 20px;
+  width: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left-side {
+  width: 60%;
+}
+
+.right-side {
+  width: 35%;
+}
