@@ -12,7 +12,8 @@ They are isoleted processes with all needed dependencies.
 `make fclean` to delete everything ( network, volumes, images, cache )
 
 ## Resources
-[Dockerdocs](https://docs.docker.com) 
+[Dockerdocs](https://docs.docker.com)
+[Stephane Robert blog](https://blog.stephane-robert.info/docs/conteneurs/moteurs-conteneurs/docker/)
 [Geeks for geeks : about Docker Image](https://www.geeksforgeeks.org/devops/what-is-docker-image/) 
 [Docker tuto](https://www.hostinger.com/tutorials/docker-tutorial?utm_source=google&utm_medium=cpc&utm_id=23095904630&utm_campaign=Generic-Tutorials-DSA-t2|NT:Se|Lang:EN|LO:FR&utm_term=&utm_content=781673412846&gad_source=1&gad_campaignid=23095904630&gclid=CjwKCAjwnZfPBhAGEiwAzg-VzARadXB3JUJNFoNsUVJ3odBJ6QB3-PWfn_JkNinMlqhncrr8XLoBGBoC0C8QAvD_BwE)
 [what is a container](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/)
