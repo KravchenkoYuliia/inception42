@@ -125,3 +125,7 @@ Container is a running instance of an image.
 
 ### WordPress
 - open source blogging tool and a content management system (CMS) based on PHP and MySQL, which runs on a web hosting service. Listen on port 9000
+
+
+## Bonus part in subject - static site
+My resume written in `html` and `css`
